@@ -46,7 +46,7 @@ void Exercice2()
     printf("Le plus grand entier du tableau est %i", plusGrandEntierDuTableau(tailleLogique, tableauValeursEntiers)); // appel de la fonction permettant de trouver l'entier le plus grand du tableau
 }
 
-int Exercice3()
+void Exercice3()
 {
 #define NOMBRE_LIGNES 3
 #define NOMBRE_COLONNES 4
@@ -54,6 +54,7 @@ int Exercice3()
     int tableaux2D[NOMBRE_LIGNES][NOMBRE_COLONNES] = {0}; // initialisation du tableau à deux dimensions
     int tableaux1D[TOTAL_ENTIERS] = {0}; // initialisation du tableau à une dimension
     int i = 0, j = 0, k = 0;
+    printf("Renseignez %i entiers\n",TOTAL_ENTIERS);
     for ( i = 0; i < NOMBRE_LIGNES; i++) // pour i allant de 0 à NOMBRE_LIGNES-1, avec un pas de 1. On parcourt le tableau par ligne
     {
         for ( j = 0; j < NOMBRE_COLONNES; j++) // pour j allant de 0 à NOMBRE_COLONNES-1, avec un pas de 1. On parcourt le tableau par colonne
@@ -66,13 +67,14 @@ int Exercice3()
     {
         for ( j = 0; j < NOMBRE_COLONNES; j++) // pour j allant de 0 à NOMBRE_COLONNES-1, avec un pas de 1. On parcourt le tableau par colonne
         {
+            printf("%d\t",tableaux2D[i][j]);// On affiche le tableau deux dimensions pour vérifier la conformité de l'exercice.
             tableaux1D[k] = tableaux2D[i][j];
             k = k +1;
         }
+        printf("\n");
     }
-    for ( i = 0 ; i < TOTAL_ENTIERS ; i = i + 1 )
+    for ( i = 0 ; i < TOTAL_ENTIERS ; i = i + 1 )// On affiche le tableau une dimension pour vérifier la conformité de l'exercice.
     {
         printf("%d \t", tableaux1D[i]);
     }
-    return tableaux1D[];
 }

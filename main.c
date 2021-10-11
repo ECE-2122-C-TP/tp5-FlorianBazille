@@ -10,7 +10,7 @@ int main()
     do
     {
         //On demande son choix à l'utilisateur
-        printf("Quel exercice voulez-vous lancer ?\n 1. Exercice1\n 2. Exercice2\n 3. Exercice3\n");
+        printf("\nQuel exercice voulez-vous lancer ?\n 0. Aucun\n 1. Exercice1\n 2. Exercice2\n 3. Exercice3\n");
         //Pensez à afficher les choix disponibles ici
         scanf("%d", &choixExercice);
         switch (choixExercice)

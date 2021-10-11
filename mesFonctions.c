@@ -75,26 +75,26 @@ NR multiplier(NR nbr1, NR nbr2)
 
 int plusGrandCommunDiviseur(NR nbr1)
 {
-    int reste = 1;
-    if ( nbr1.numerateur > nbr1.denominateur )
+    int reste = 0;// Initialisation de la variable reste, dans laquelle on stockera le reste de la division euclidienne entre le numérateur et le dénominateur
+    if ( nbr1.numerateur > nbr1.denominateur )// si numérateur > dénominateur
     {
-        while ( reste != 0)
+        do// on utilise le do while pour effectuer la boucle au moins une fois, car reste a été initialisé à 0
         {
-            reste = nbr1.numerateur%nbr1.denominateur;
-            nbr1.numerateur = nbr1.denominateur;
-            nbr1.denominateur = reste;
-        }
-        reste = nbr1.numerateur;
+            reste = nbr1.numerateur%nbr1.denominateur;// on calcule le reste entre le numérateur et le dénominateur
+            nbr1.numerateur = nbr1.denominateur;//le numérateur prend la valeur du dénominateur
+            nbr1.denominateur = reste;//le dénominateur prend la valeur du reste
+        }while ( reste != 0);
+        reste = nbr1.numerateur;// on récupère la dernière valeur pour laquelle reste != 0
     }
     else
     {
-        while ( reste != 0)
+        do
         {
             reste = nbr1.denominateur%nbr1.numerateur;
             nbr1.denominateur = nbr1.numerateur;
             nbr1.numerateur = reste;
-        }
-        reste = nbr1.denominateur;
+        }while ( reste != 0);
+        reste = nbr1.denominateur;// on récupère la dernière valeur pour laquelle reste != 0
     }
     return reste;
 }
@@ -103,13 +103,14 @@ int plusGrandCommunDiviseur(NR nbr1)
  * Paramètres :
  * - INOUT : aucune
  * - IN : NT nbr1 : le nombre rationnel à simplifier
- * - OUT : NT nbr : le nombre rationnel simplifié
+ * - OUT : NT nbr1 : le nombre rationnel simplifié
  */
 NR simplification(NR nbr1)
 {
-    int pGCD = plusGrandCommunDiviseur(nbr1);
-    if ( pGCD != 0 )
+    int pGCD = plusGrandCommunDiviseur(nbr1);// on récupère le PGCD du numérateur avec le dénominateur grâce à une autre fonction.
+    if ( pGCD != 0 ) // sécurité pour éviter toute division par zéro, on note que même si PGCD = 1, le nombre ne sera simplement pas simplifier.
     {
+        //calcul du nouveau numérateur et du nouveau dénominateur
         nbr1.numerateur = nbr1.numerateur/pGCD;
         nbr1.denominateur = nbr1.denominateur/pGCD;
         printf("le PGCD est : %d\n", pGCD);

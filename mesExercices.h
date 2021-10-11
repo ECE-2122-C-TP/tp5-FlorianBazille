@@ -7,6 +7,6 @@
 
 void Exercice1(void);
 void Exercice2(void);
-int Exercice3(void);
+void Exercice3(void);
 
 #endif //TP5_2_MESEXERCICES_H
