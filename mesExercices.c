@@ -7,6 +7,30 @@
 #include "mesFonctions.h"
 #include "mesExercices.h"
 
+void Exercice1()
+{
+    int choixTest = 0;
+    do
+    {
+        printf("\nIndiquer le numero correspondant a la fonctione que vous voulez tester :\n 0 = Aucun\n 1 = Addition entre deux nombres rationnels\n 2 = Multiplication entre deux nombres rationnels\n 3 = Simplification d'un nombre rationnel\n");
+        scanf("%i",&choixTest);
+        switch (choixTest)
+        {
+            case 1 :
+                afficherNombreRationnel(additionner(nombreRationnel(),nombreRationnel()));
+                break;
+            case 2 :
+                afficherNombreRationnel(multiplier(nombreRationnel(),nombreRationnel()));
+                break;
+            case 3 :
+                afficherNombreRationnel(simplification(nombreRationnel()));
+                break;
+            default:
+                printf("\nVous n'avez selectionne aucun test.\n");
+                break;
+        }
+    }while (choixTest != 0);
+}
 void Exercice2()
 {
 #define TOTAL_ENTIER 100 // on définit la taille du tableau comme une macro
@@ -26,9 +50,9 @@ int Exercice3()
 {
 #define NOMBRE_LIGNES 3
 #define NOMBRE_COLONNES 4
-#define TOTAL_ENTIER 12
+#define TOTAL_ENTIERS 12
     int tableaux2D[NOMBRE_LIGNES][NOMBRE_COLONNES] = {0}; // initialisation du tableau à deux dimensions
-    int tableaux1D[TOTAL_ENTIER] = {0}; // initialisation du tableau à une dimension
+    int tableaux1D[TOTAL_ENTIERS] = {0}; // initialisation du tableau à une dimension
     int i = 0, j = 0, k = 0;
     for ( i = 0; i < NOMBRE_LIGNES; i++) // pour i allant de 0 à NOMBRE_LIGNES-1, avec un pas de 1. On parcourt le tableau par ligne
     {
@@ -46,9 +70,9 @@ int Exercice3()
             k = k +1;
         }
     }
-    for ( i = 0 ; i < TOTAL_ENTIER ; i = i + 1 )
+    for ( i = 0 ; i < TOTAL_ENTIERS ; i = i + 1 )
     {
         printf("%d \t", tableaux1D[i]);
     }
-    return tableaux1D;
+    return tableaux1D[];
 }

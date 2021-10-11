@@ -31,7 +31,7 @@ NR nombreRationnel()
 
 void afficherNombreRationnel(NR nbr)
 {
-    printf("Le nombre rationnel issu des differentes operations est:\n %d / %d", nbr.numerateur, nbr.denominateur );
+    printf("Le nombre rationnel issu des differentes operations est:\n %d / %d\n", nbr.numerateur, nbr.denominateur );
 }
 
 /* Fonction qui additionne deux nombres rationnels.
@@ -75,7 +75,7 @@ NR multiplier(NR nbr1, NR nbr2)
 
 int plusGrandCommunDiviseur(NR nbr1)
 {
-    int reste = 0;
+    int reste = 1;
     if ( nbr1.numerateur > nbr1.denominateur )
     {
         while ( reste != 0)
@@ -84,6 +84,7 @@ int plusGrandCommunDiviseur(NR nbr1)
             nbr1.numerateur = nbr1.denominateur;
             nbr1.denominateur = reste;
         }
+        reste = nbr1.numerateur;
     }
     else
     {
@@ -93,6 +94,7 @@ int plusGrandCommunDiviseur(NR nbr1)
             nbr1.denominateur = nbr1.numerateur;
             nbr1.numerateur = reste;
         }
+        reste = nbr1.denominateur;
     }
     return reste;
 }
